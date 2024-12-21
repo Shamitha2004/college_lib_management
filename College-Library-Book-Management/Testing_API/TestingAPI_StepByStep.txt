@@ -1,8 +1,8 @@
 1. POST/ http://localhost:5000/addStudent
 -------------------------------------------
 {
-    "name": "Athmika U",
-    "usn": "4SF22CS038"
+    "name": "Shamitha A",
+    "usn": "4SF22CS185"
 }
 
 =>
@@ -13,7 +13,7 @@
 -------------------------------------------
 input:
 {
-    "name": "Athmi",
+    "name": "Athmika",
     "usn": "4SF22CS038"
 }
 =>
