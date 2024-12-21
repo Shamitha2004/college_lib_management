@@ -1,0 +1,282 @@
+1. POST/ http://localhost:5000/addStudent
+-------------------------------------------
+{
+    "name": "Athmika U",
+    "usn": "4SF22CS038"
+}
+
+=>
+{
+    "message": "Student added successfully!"
+}
+
+-------------------------------------------
+input:
+{
+    "name": "Athmi",
+    "usn": "4SF22CS038"
+}
+=>
+{
+    "message": "Student with this USN already exists"
+}
+
+========================================================================================
+2. POST/ http://localhost:5000/addBook
+-------------------------------------------
+[
+    {
+        "title": "Advanced Algorithms",
+        "author": "John Smith",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Data Structures and Algorithms in C",
+        "author": "Yedidyah Langsam",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Computer Networks",
+        "author": "Andrew S. Tanenbaum",
+        "available": true,
+        "popularity": 10
+    },
+    {
+        "title": "Operating System Concepts",
+        "author": "Abraham Silberschatz",
+        "available": true,
+        "popularity": 7
+    },
+    {
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen",
+        "available": true,
+        "popularity": 10
+    },
+    {
+        "title": "Artificial Intelligence: A Modern Approach",
+        "author": "Stuart Russell, Peter Norvig",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Database Management Systems",
+        "author": "Raghu Ramakrishnan, Johannes Gehrke",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Software Engineering: A Practitioner's Approach",
+        "author": "Roger S. Pressman",
+        "available": false,
+        "popularity": 6
+    },
+    {
+        "title": "Digital Design and Computer Architecture",
+        "author": "David Money Harris, Sarah Harris",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Computer Architecture: A Quantitative Approach",
+        "author": "John L. Hennessy, David A. Patterson",
+        "available": true,
+        "popularity": 9
+    }
+]
+-------------------------------------------
+=>
+{
+    "message": "Book added successfully!"
+}
+
+========================================================================================
+3. GET/ http://localhost:5000/getBooks
+-------------------------------------------
+=>
+[
+    {
+        "title": "Computer Networks",
+        "author": "Andrew S. Tanenbaum",
+        "available": true,
+        "popularity": 10
+    },
+    {
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen",
+        "available": true,
+        "popularity": 10
+    },
+    {
+        "title": "Data Structures and Algorithms in C",
+        "author": "Yedidyah Langsam",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Artificial Intelligence: A Modern Approach",
+        "author": "Stuart Russell, Peter Norvig",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Computer Architecture: A Quantitative Approach",
+        "author": "John L. Hennessy, David A. Patterson",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Advanced Algorithms",
+        "author": "John Smith",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Database Management Systems",
+        "author": "Raghu Ramakrishnan, Johannes Gehrke",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Digital Design and Computer Architecture",
+        "author": "David Money Harris, Sarah Harris",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Operating System Concepts",
+        "author": "Abraham Silberschatz",
+        "available": true,
+        "popularity": 7
+    },
+    {
+        "title": "Software Engineering: A Practitioner's Approach",
+        "author": "Roger S. Pressman",
+        "available": false,
+        "popularity": 6
+    }
+]
+
+
+========================================================================================
+4. POST/ http://localhost:5000/requestBook
+-------------------------------------------
+{
+    "usn": "4SF22CS038",
+    "bookTitle": "Introduction to Algorithms"
+}
+
+-------------------------------------------
+=> 
+{
+    "message": "Book request successful!"
+}
+
+
+========================================================================================
+5. GET/ http://localhost:5000/studentRequests/4SF22CS038     : (/studentRequests/:usn)
+=>
+[
+    "Introduction to Algorithms"
+]
+
+------------------------------------------------------
+http://localhost:5000/studentRequests/4SF22CS000 
+
+=>
+{
+    "message": "Student not found."
+}
+
+
+========================================================================================
+6. GET/ http://localhost:5000/searchBook/The Great Gatsby   : (/searchBook/:title)
+
+=>
+{
+    "message": "Book not found."
+}
+
+------------------------------------------------------------
+
+http://localhost:5000/searchBook/Computer Networks
+
+=>
+{
+    "title": "Computer Networks",
+    "author": "Andrew S. Tanenbaum",
+    "available": true,
+    "popularity": 10
+}
+
+-------------------------------------------------------------
+http://localhost:5000/searchBook/Introduction to Algorithms
+
+=>
+{
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "available": false,
+    "popularity": 10
+}
+
+
+========================================================================================
+7. GET/ http://localhost:5000/availableBooks
+----------------------------------------------
+
+=>
+[
+    {
+        "title": "Computer Networks",
+        "author": "Andrew S. Tanenbaum",
+        "available": true,
+        "popularity": 10
+    },
+    {
+        "title": "Data Structures and Algorithms in C",
+        "author": "Yedidyah Langsam",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Artificial Intelligence: A Modern Approach",
+        "author": "Stuart Russell, Peter Norvig",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Computer Architecture: A Quantitative Approach",
+        "author": "John L. Hennessy, David A. Patterson",
+        "available": true,
+        "popularity": 9
+    },
+    {
+        "title": "Advanced Algorithms",
+        "author": "John Smith",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Database Management Systems",
+        "author": "Raghu Ramakrishnan, Johannes Gehrke",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Digital Design and Computer Architecture",
+        "author": "David Money Harris, Sarah Harris",
+        "available": true,
+        "popularity": 8
+    },
+    {
+        "title": "Operating System Concepts",
+        "author": "Abraham Silberschatz",
+        "available": true,
+        "popularity": 7
+    }
+]
+
+========================================================================================
